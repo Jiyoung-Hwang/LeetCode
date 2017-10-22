@@ -1,6 +1,48 @@
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class Test {
-    public static void main(String args[]){
-        System.out.println("Hello World");
+    public static void main(String args[]) throws Exception{
+
+        int[] nums = new int[]{3,2,1,1,1,5,1};
+
+        System.out.println(Test.majorityElement_myApproach(nums));
+        System.out.println(Test.majorityElement_myApproach2(nums));
+        System.out.println(Test.majorityElement_best(nums));
+    }
+
+    private static int majorityElement_best(int[] nums){
+        int major = nums[0];
+        int cnt = 0;
+        for(int i=1;i<nums.length;i++){
+            if(cnt==0){
+                major = nums[i];
+                cnt++;
+            }else if(major == nums[i]){
+                cnt++;
+            }else{
+                cnt--;
+            }
+        }
+
+        return major;
+    }
+
+    private static int majorityElement_myApproach(int[] nums){
+        Arrays.sort(nums);
+        return nums[nums.length/2];
+    }
+
+    private static int majorityElement_myApproach2(int[] nums) throws Exception{
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int threshHold = nums.length/2;
+
+        for(int i=0;i<nums.length;i++){
+            map.put(nums[i], map.containsKey(nums[i])? map.get(nums[i]) + 1 : 1);
+            if(map.get(nums[i]) >= threshHold)
+                return nums[i];
+        }
+
+        throw new Exception("No majority Elements.");
     }
 }
