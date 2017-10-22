@@ -1,15 +1,15 @@
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class Test {
+public class Test169 {
     public static void main(String args[]) throws Exception{
 
         int[] nums = new int[]{1,3,5,7,3,3,3};
 
-        System.out.println(Test.majorityElement_myApproach(nums));
-        System.out.println(Test.majorityElement_myApproach2(nums));
-        System.out.println(Test.majorityElement_best(nums));
-        System.out.println(Test.majorityElement_best2(nums));
+        System.out.println(Test169.majorityElement_myApproach(nums));
+        System.out.println(Test169.majorityElement_myApproach2(nums));
+        System.out.println(Test169.majorityElement_best(nums));
+        System.out.println(Test169.majorityElement_best2(nums));
     }
 
     private static int majorityElement_best2(int[] nums){
